@@ -1,4 +1,4 @@
-package casinogameproject.CasinoGame;
+package casinogameproject;
 
 
 import java.awt.Graphics;
@@ -45,7 +45,7 @@ public class LogoAnimatorPanel extends JPanel{
             }
             }
             catch(NullPointerException e){
-                System.out.println("WTF m8");
+                
             }
         }
         public JButton btn = new JButton("Animate");
@@ -61,8 +61,9 @@ public class LogoAnimatorPanel extends JPanel{
             }
         } 
         
-        public void stopAnimation(){
+        public int stopAnimation(){
             animationTimer.stop();
+            return currentImage;
         }
         
         public Dimension getMinimumSize(){
