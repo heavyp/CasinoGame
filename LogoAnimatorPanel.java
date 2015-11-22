@@ -16,7 +16,7 @@ public class LogoAnimatorPanel extends JPanel{
     protected ImageIcon images[];
     private final int TOTAL_IMAGES = 8;
     private int currentImage = 0;
-    private final int ANIMATION_DELAY = 50;
+    private final int ANIMATION_DELAY = 69;
     private int width;
     private int height;
     
@@ -37,6 +37,7 @@ public class LogoAnimatorPanel extends JPanel{
         public int getCurrentImageNum(){
             return currentImage;
         }
+        
         public void paintComponent(Graphics g){
             super.paintComponent(g);
              images[currentImage].paintIcon(this, g, 0, 0);
@@ -54,7 +55,7 @@ public class LogoAnimatorPanel extends JPanel{
         
         public void startAnimation(){
         if (animationTimer == null){
-                currentImage = 0;
+                //currentImage = 0;
                 animationTimer = new Timer(ANIMATION_DELAY, new TimerHandler() );
                 animationTimer.start();
             }
@@ -65,9 +66,9 @@ public class LogoAnimatorPanel extends JPanel{
         } 
         
        
-        public int stopAnimation(){
+        public void stopAnimation(){
             animationTimer.stop();
-            return currentImage;
+            
         }
         
         public Dimension getMinimumSize(){
