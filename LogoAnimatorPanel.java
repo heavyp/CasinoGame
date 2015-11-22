@@ -1,4 +1,4 @@
-package casinogameproject;
+package casinogameproject.CasinoGame;
 
 
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import javax.swing.Timer;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+
 
 public class LogoAnimatorPanel extends JPanel{
     
@@ -16,7 +16,7 @@ public class LogoAnimatorPanel extends JPanel{
     protected ImageIcon images[];
     private final int TOTAL_IMAGES = 8;
     private int currentImage = 0;
-    private final int ANIMATION_DELAY = 200;
+    private final int ANIMATION_DELAY = 100;
     private int width;
     private int height;
     
@@ -29,16 +29,18 @@ public class LogoAnimatorPanel extends JPanel{
         for (int count = 0; count < images.length ; count++){
             images[count] = new ImageIcon(getClass().getResource(
                 IMAGE_NAME + (count + 1) + ".jpg"));
-           
-        
-        width = images[count].getIconWidth();
-        height = images[count].getIconHeight();
+            
+            width = images[count].getIconWidth();
+            height = images[count].getIconHeight();
         }  
     }
-    
+        public int getCurrentImageNum(){
+            return currentImage;
+        }
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            images[currentImage].paintIcon(this, g, 0, 0);
+             images[currentImage].paintIcon(this, g, 0, 0);
+           
             try{
             if(animationTimer.isRunning()){
                 currentImage = (currentImage + 1) % TOTAL_IMAGES;
@@ -48,7 +50,8 @@ public class LogoAnimatorPanel extends JPanel{
                 
             }
         }
-        public JButton btn = new JButton("Animate");
+        
+        
         public void startAnimation(){
         if (animationTimer == null){
                 currentImage = 0;
@@ -61,6 +64,7 @@ public class LogoAnimatorPanel extends JPanel{
             }
         } 
         
+       
         public int stopAnimation(){
             animationTimer.stop();
             return currentImage;

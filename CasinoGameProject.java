@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package casinogameproject;
+package casinogameproject.CasinoGame;
+
+import java.io.IOException;
 
 
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+
+
 
 
 /**
@@ -21,7 +22,7 @@ public class CasinoGameProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException  {
         LogoAnimatorPanel animation1 = new LogoAnimatorPanel();
         LogoAnimatorPanel animation2 = new LogoAnimatorPanel();
         LogoAnimatorPanel animation3 = new LogoAnimatorPanel();
