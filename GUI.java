@@ -5,6 +5,7 @@
  */
 package casinogameproject.CasinoGame;
 
+import java.applet.AudioClip;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 import javax.swing.Timer;
@@ -30,7 +36,13 @@ public class GUI extends JFrame{
     
     private ImageIcon image1;
     
-
+    //private AudioClip welcome, backgroundSound, spinSound, winSound;
+    
+    String soundName = "welcome.wav";    
+    AudioInputStream audioInputStream;
+    Clip welcomeSound;
+    
+    
     final int PLAYERS_BET = -1;
     int playerBank;
     int casinoBank;
@@ -40,8 +52,12 @@ public class GUI extends JFrame{
 
     //CONSTRUCTOR
     public GUI(LogoAnimatorPanel animation1, LogoAnimatorPanel animation2,
-               LogoAnimatorPanel animation3) throws IOException {
+               LogoAnimatorPanel animation3) throws  UnsupportedAudioFileException, 
+                                            IOException, LineUnavailableException 
+    {
         super("Casino Game");
+        audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+        welcomeSound = AudioSystem.getClip();
         image1 = new ImageIcon("background.jpg");
         
         setSize(800, 700);
@@ -55,6 +71,8 @@ public class GUI extends JFrame{
         panel.add(animation2);
         panel.add(animation3);
         
+        welcomeSound.open(audioInputStream);
+        welcomeSound.start();
         
         quitBtn.addActionListener((ActionEvent e) -> {
             

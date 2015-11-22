@@ -16,7 +16,7 @@ public class LogoAnimatorPanel extends JPanel{
     protected ImageIcon images[];
     private final int TOTAL_IMAGES = 8;
     private int currentImage = 0;
-    private final int ANIMATION_DELAY = 100;
+    private final int ANIMATION_DELAY = 50;
     private int width;
     private int height;
     

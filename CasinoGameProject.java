@@ -6,6 +6,8 @@
 package casinogameproject.CasinoGame;
 
 import java.io.IOException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 
 
@@ -22,7 +24,7 @@ public class CasinoGameProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException  {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException   {
         LogoAnimatorPanel animation1 = new LogoAnimatorPanel();
         LogoAnimatorPanel animation2 = new LogoAnimatorPanel();
         LogoAnimatorPanel animation3 = new LogoAnimatorPanel();
